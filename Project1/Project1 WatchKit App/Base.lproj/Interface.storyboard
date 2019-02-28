@@ -19,8 +19,11 @@
                                 <tableRow identifier="row" id="0CL-MD-Jnt" customClass="NoteSelectRow" customModule="Project1_WatchKit_Extension">
                                     <group key="rootItem" width="1" alignment="left" id="3hH-I7-LWV">
                                         <items>
-                                            <label alignment="left" verticalAlignment="center" text="Label" id="VgA-FI-Wtj"/>
+                                            <label alignment="left" verticalAlignment="center" text="Label" numberOfLines="3" id="VgA-FI-Wtj"/>
                                         </items>
+                                        <connections>
+                                            <segue destination="6kb-Gl-Pi1" kind="push" identifier="show" id="cvc-6f-J0o"/>
+                                        </connections>
                                     </group>
                                     <connections>
                                         <outlet property="textLabel" destination="VgA-FI-Wtj" id="hPU-2M-x3H"/>
@@ -40,6 +43,22 @@
                     </connections>
                 </controller>
             </objects>
+        </scene>
+        <!--Detail Interface Controller-->
+        <scene sceneID="4YR-Ce-gqN">
+            <objects>
+                <controller id="6kb-Gl-Pi1" customClass="DetailInterfaceController" customModule="Project1_WatchKit_Extension">
+                    <items>
+                        <label alignment="center" verticalAlignment="center" text="Label" numberOfLines="0" id="9G7-CU-iv1"/>
+                        <label alignment="right" verticalAlignment="bottom" text="0/0" id="Jsc-Uv-d0j"/>
+                    </items>
+                    <connections>
+                        <outlet property="detailLabel" destination="9G7-CU-iv1" id="TAC-oo-lQE"/>
+                        <outlet property="noteCountLabel" destination="Jsc-Uv-d0j" id="3Gy-j0-5hv"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="329" y="29"/>
         </scene>
     </scenes>
 </document>

@@ -17,15 +17,35 @@ class InterfaceController: WKInterfaceController {
     
     var notes = [String]()
     
+    var savePath = InterfaceController.getDocumentDirectory().appendingPathComponent("notes")
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
-        table.setNumberOfRows(notes.count, withRowType: rowIdentifier)
+        setTitle("Hello WatchOS")
         
-        for row in 0..<notes.count {
-            set(row, text: notes[row])
+        do {
+            let data = try Data(contentsOf: savePath)
+            notes = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [String] ?? [String]()
+            table.setNumberOfRows(notes.count, withRowType: rowIdentifier)
+            for row in 0..<notes.count {
+                set(row, text: notes[row])
+            }
+            
+        } catch {
+            
         }
-
+    }
+    
+    static func getDocumentDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths.first!
+    }
+    
+    override func contextForSegue(withIdentifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> Any? {
+        
+        return Note.init(note: notes[rowIndex], id: rowIndex, total: notes.count)
+        
     }
     
     func set (_ row: Int, text: String) {
@@ -43,12 +63,20 @@ class InterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
     @IBAction func addNewNote() {
-        presentTextInputController(withSuggestions: nil, allowedInputMode: .plain) { results in
-            
+        
+        presentTextInputController(withSuggestions: ["Hi", "Hello", "Good Morning", "Good luck on your interview with Apple!Good luck on your interview with Apple!Good luck on your interview with Apple!Good luck on your interview with Apple!"], allowedInputMode: .allowEmoji) { results in
             guard let result = results?.first as? String else { return }
             self.table.insertRows(at: IndexSet(integer: self.notes.count), withRowType: rowIdentifier)
             self.set(self.notes.count, text: result)
             self.notes.append(result)
+            
+            do {
+                let data = try NSKeyedArchiver.archivedData(withRootObject: self.notes, requiringSecureCoding: false)
+                
+                try data.write(to: self.savePath)
+            } catch {
+                print("Failed to save data: \(error.localizedDescription)")
+            }
             
         }
     }

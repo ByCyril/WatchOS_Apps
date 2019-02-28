@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		011594C822261E6F004F6FB9 /* DetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011594C722261E6F004F6FB9 /* DetailInterfaceController.swift */; };
+		011594CA22271ACC004F6FB9 /* Objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011594C922271ACC004F6FB9 /* Objects.swift */; };
 		01CC0FFC222510FE0056F533 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CC0FFB222510FE0056F533 /* AppDelegate.swift */; };
 		01CC0FFE222510FE0056F533 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CC0FFD222510FE0056F533 /* ViewController.swift */; };
 		01CC1001222510FE0056F533 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01CC0FFF222510FE0056F533 /* Main.storyboard */; };
@@ -65,6 +67,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		011594C722261E6F004F6FB9 /* DetailInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInterfaceController.swift; sourceTree = "<group>"; };
+		011594C922271ACC004F6FB9 /* Objects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Objects.swift; sourceTree = "<group>"; };
 		01CC0FF8222510FE0056F533 /* Project1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01CC0FFB222510FE0056F533 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01CC0FFD222510FE0056F533 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -149,7 +153,9 @@
 		01CC101D222511000056F533 /* Project1 WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				011594C922271ACC004F6FB9 /* Objects.swift */,
 				01CC101E222511000056F533 /* InterfaceController.swift */,
+				011594C722261E6F004F6FB9 /* DetailInterfaceController.swift */,
 				01CC1020222511000056F533 /* ExtensionDelegate.swift */,
 				01CC1022222511010056F533 /* Assets.xcassets */,
 				01CC1024222511010056F533 /* Info.plist */,
@@ -299,7 +305,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				01CC10332225137F0056F533 /* NoteSelectRow.swift in Sources */,
+				011594CA22271ACC004F6FB9 /* Objects.swift in Sources */,
 				01CC1021222511000056F533 /* ExtensionDelegate.swift in Sources */,
+				011594C822261E6F004F6FB9 /* DetailInterfaceController.swift in Sources */,
 				01CC101F222511000056F533 /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
