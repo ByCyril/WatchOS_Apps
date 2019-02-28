@@ -24,6 +24,10 @@ class InterfaceController: WKInterfaceController {
         
         setTitle("Hello WatchOS")
         
+    }
+    
+    override func didAppear() {
+        super.didAppear()
         do {
             let data = try Data(contentsOf: savePath)
             notes = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [String] ?? [String]()
@@ -44,7 +48,7 @@ class InterfaceController: WKInterfaceController {
     
     override func contextForSegue(withIdentifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> Any? {
         
-        return Note.init(note: notes[rowIndex], id: rowIndex, total: notes.count)
+        return Note.init(notes: notes, index: rowIndex)
         
     }
     
@@ -64,7 +68,8 @@ class InterfaceController: WKInterfaceController {
     }
     @IBAction func addNewNote() {
         
-        presentTextInputController(withSuggestions: ["Hi", "Hello", "Good Morning", "Good luck on your interview with Apple!Good luck on your interview with Apple!Good luck on your interview with Apple!Good luck on your interview with Apple!"], allowedInputMode: .allowEmoji) { results in
+        presentTextInputController(withSuggestions: ["Hi", "Hello", "Good Morning", "Good luck!"], allowedInputMode: .allowEmoji) { results in
+            
             guard let result = results?.first as? String else { return }
             self.table.insertRows(at: IndexSet(integer: self.notes.count), withRowType: rowIdentifier)
             self.set(self.notes.count, text: result)

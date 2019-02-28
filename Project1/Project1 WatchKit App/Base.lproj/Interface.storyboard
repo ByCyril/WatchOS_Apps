@@ -52,6 +52,20 @@
                         <label alignment="center" verticalAlignment="center" text="Label" numberOfLines="0" id="9G7-CU-iv1"/>
                         <label alignment="right" verticalAlignment="bottom" text="0/0" id="Jsc-Uv-d0j"/>
                     </items>
+                    <menu key="menu" id="XeR-VF-m2c">
+                        <items>
+                            <menuItem title="Edit" icon="share" id="yUJ-UT-rIa">
+                                <connections>
+                                    <action selector="editNote" destination="6kb-Gl-Pi1" id="ijX-aU-SXR"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Delete" icon="trash" id="Q77-KI-N38">
+                                <connections>
+                                    <action selector="deleteNote" destination="6kb-Gl-Pi1" id="8p7-NZ-TqP"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
                     <connections>
                         <outlet property="detailLabel" destination="9G7-CU-iv1" id="TAC-oo-lQE"/>
                         <outlet property="noteCountLabel" destination="Jsc-Uv-d0j" id="3Gy-j0-5hv"/>

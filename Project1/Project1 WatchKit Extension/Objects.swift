@@ -9,7 +9,6 @@
 import Foundation
 
 struct Note {
-    var note: String?
-    var id: Int?
-    var total: Int?
+    var notes: [String]?
+    var index: Int?
 }
